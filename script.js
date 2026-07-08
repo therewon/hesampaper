@@ -181,6 +181,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+document.querySelectorAll(".accordion-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        const arrow = button.querySelector(".arrow");
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            arrow.classList.remove("rotate-45");
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            arrow.classList.add("rotate-45");
+        }
+    });
+});
 
 
 
